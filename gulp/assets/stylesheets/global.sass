@@ -1,15 +1,54 @@
 @import base/iconFont
 
-body
-  background: #dd3435 image-url('gulp.png')
-  font-family: sans-serif
+@import '../components/bootstrap-sass-official/assets/stylesheets/_bootstrap'
+@import '../components/select2/src/scss/core';
+@import '../components/select2-bootstrap-theme/src/select2-bootstrap'
 
-img
-  background-color: white
+h1,h2,h3,h4
+  letter-spacing: -1px
 
-p
-  font-size: 18px
 
-a
-  text-decoration: none
-  color: white
+// sticky footer
+
+$footer-height: 70px
+
+*
+  margin: 0
+
+html, body
+  height: 100%
+
+.page-wrap
+  min-height: 100%
+  // equal to footer height
+  margin-bottom: -1*$footer-height
+  &:after
+    content: ""
+    display: block
+
+.site-footer, .page-wrap:after
+  height: $footer-height
+
+// header
+
+header
+  background: $gray-light
+  color: #FFF
+
+// forms
+
+.controls
+  width: 100%
+
+// footer
+
+.site-footer
+  background: $gray-lighter
+  .inner
+    padding: 25px 0
+    text-align: center
+    font-weight: 700
+    text-transform: uppercase
+    color: $gray-light
+    p
+      margin: 0

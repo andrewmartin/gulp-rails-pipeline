@@ -1,10 +1,11 @@
 var publicAssets = "./public/assets";
 var sourceFiles  = "./gulp/assets";
+var bowerFiles  = "./gulp/assets/components";
 
 module.exports = {
   publicAssets: publicAssets,
   browserSync: {
-    proxy: 'localhost:3000',
+    proxy: 'mine.dev',
     files: ['./app/views/**']
   },
   sass: {
@@ -41,5 +42,11 @@ module.exports = {
       outputName: 'global.js',
       extensions: ['.js','.coffee']
     }]
+  },
+  vendorJS: {
+    src: [
+      bowerFiles + '/select2/dist/js/select2.js'
+    ],
+    dest: publicAssets + '/javascripts'
   }
 };

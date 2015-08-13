@@ -1,3 +1,5 @@
 message = require './message'
+select2 = require './select2'
 
-console.log message
+$(document).on 'ready page:load', ->
+  console.log message

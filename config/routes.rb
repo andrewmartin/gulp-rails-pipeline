@@ -1,11 +1,18 @@
-Rails.application.routes.draw do
-  get 'welcome/index'
+Mine::Application.routes.draw do
+  devise_for :users, :skip => [:sessions], :controllers => {omniauth_callbacks: "users/omniauth_callbacks" }
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
+  as :user do
+    get 'sign-in' => 'devise/sessions#new', :as => :new_user_session
+    post 'sign-in' => 'devise/sessions#create', :as => :user_session
+    delete 'sign-out' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
